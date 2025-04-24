@@ -14,7 +14,7 @@ END;
 $$;
 
 -- Функция подсчета студентов в группе
-CREATE OR REPLACE FUNCTION count_students_in_group(p_group_name VARCHAR)
+CREATE OR REPLACE FUNCTION count_students_in_group(group_name VARCHAR)
 RETURNS INTEGER
 LANGUAGE plpgsql
 AS $$
@@ -23,7 +23,7 @@ DECLARE
 BEGIN
     SELECT COUNT(*) INTO student_count
     FROM "Group"
-    WHERE name = p_group_name;
+    WHERE name = group_name;
     
     RETURN student_count;
 END;
